@@ -11,11 +11,9 @@ const ContextHome = ({ children }) => {
 const deletTask =(taskName)=>{
     return setTask(task.filter(tsk=> tsk.name !== taskName))
 }
-const updateTask = (updatedTask) => {
-   return setTask((prevTasks) =>
-      prevTasks.map((tsk) =>
-        tsk.name === taskName ? { ...updatedTask } : tsk
-      )
+const updateTask = (taskName, newData) => {
+   return setTask((prevTask) =>
+      prevTask.map((tsk) => (tsk.name === taskName ? { ...tsk, ...newData } : tsk))
     );
   };
 

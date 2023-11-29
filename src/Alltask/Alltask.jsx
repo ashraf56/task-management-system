@@ -1,12 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import  { ContextService } from '../context/Context';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 const Alltask = () => {
 
-   let {task,deletTask ,taskchecked}= useContext(ContextService)
+   let {task,deletTask ,taskchecked,updateTask}= useContext(ContextService)
+   const [selectedTask, setSelectedTask] = useState(null);
 
+   const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
 
+  const onSubmit = (data) => {
+   console.log(data);
+   if (selectedTask) {
+    updateTask(selectedTask.name, data); 
+    handleCloseModal();
+  }
+  
+  }
+  const handleCloseModal = () => {
+    const modal = document.getElementById('my_modal_1');
+    if (modal) {
+      modal.close();
+    }
+  };
     return (
         <div>
             
@@ -22,17 +44,66 @@ const Alltask = () => {
                        {t.checked ? <button className='text-green-500'>Completed</button> : <button className='text-red-800'>Not completed</button> }
                       </div>
                         <div>
-                          <button className="btn btn-sm">
-                            <Link to={`/update/${t.name}`} >
+                          
+                          <button className="btn" onClick={()=>   
+                           { document.getElementById('my_modal_1').showModal(); setSelectedTask(t);}}>
+                            open modal
+                            </button>
 
-                            </Link>
-                          </button>
-                          <button className="btn btn-sm btn-primary" onClick={()=> deletTask(t.name)} >Delete</button>
+                         
+                          <button className="btn btn-sm btn-primary mx-2" onClick={()=> deletTask(t.name)} >Delete</button>
                         </div>
                       </div>
                     ))
                 }
+
+
             </div>
+            <dialog id="my_modal_1" className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click the button below to close</p>
+    <div className="modal-action">
+   
+     <form method="dialog" className="card-body" onSubmit={handleSubmit(onSubmit)}>
+       <div className="form-control">
+         <label className="label">
+           <span className="label-text">Task name</span>
+         </label>
+         <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-full"  {...register("name", {required:true})} defaultValue={selectedTask?.name} required />
+                 </div>
+       <div className="form-control">
+         <label className="label">
+           <span className="label-text">Task Description</span>
+         </label>
+         <textarea className="textarea textarea-bordered w-full max-w-full" placeholder="type here"  {...register("description")}
+         defaultValue={selectedTask?.description}
+         ></textarea>
+                 </div>
+       <div className="form-control">
+       <label className="label">
+           <span className="label-text">Task Priority level</span>
+         </label>
+       <select className="select select-bordered w-full max-w-full" {...register("level")} 
+       defaultValue={selectedTask?.level}
+       >
+        
+       <option value="high">high</option>
+       <option value="medium">medium</option>
+       <option value="low">low</option>
+</select>
+       </div>
+       <div className="form-control mt-6">
+         <button className="btn btn-primary">Add</button>
+       </div>
+ <button className="btn" onClick={handleCloseModal}>Close</button>
+     </form>
+   
+      
+    
+    </div>
+  </div>
+</dialog>
         </div>
     );
 };
