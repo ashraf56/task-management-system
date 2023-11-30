@@ -33,3 +33,16 @@
    yarn
    ```
 
+4. Usage:
+
+ Run the Vite development server:
+
+
+ ```bash
+   npm run dev
+   ```
+Or with yarn:
+
+ ```bash
+  yarn dev
+   ```
