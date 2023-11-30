@@ -7,13 +7,13 @@
  - React js
  - Tailwind CSS
 
-# Add task
+- Add task page
 ![Project Logo](/public/projectimg1.png)
-# Add task
+- Home page
 ![Project Logo](/public/p2.png)
-# Add task
+- Update task
 ![Project Logo](/public/Screensho2t.png)
-# Add task
+- All completed task
 ![Project Logo](/public/Screenshot2.png)
 
 
