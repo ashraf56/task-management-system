@@ -7,6 +7,7 @@
  - React js
  - Tailwind CSS
 
+# Project snapshot
 - Add task page
 ![Project Logo](/public/projectimg1.png)
 - Home page
