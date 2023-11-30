@@ -1,13 +1,11 @@
 
 
-# Your Project Name
+# Task Manager
 
-## Prerequisites
-
-
-
-- [Node.js](https://nodejs.org/) (Vite requires Node.js 12.0 and above)
-- npm or yarn
+## Technology used
+ - Vite
+ - React js
+ - Tailwind CSS
 
 ## Installation
 
