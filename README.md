@@ -17,13 +17,16 @@ Brief description of your project.
 
      ```bash
           cd your-repo
-          
+
 3. Install dependencies using npm:
+
        ```bash
              npm install
 
 
 4. Usage: 
+
       ```bash
              npm install
+             
 5. Open your browser and and see your Vite app.
