@@ -2,23 +2,29 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ContextHome, { ContextService } from '../context/Context';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Addtask = () => {
    let {addTask}=useContext(ContextService)
+   
     const {
         register,
         handleSubmit,
-        watch,
+        watch,reset,
         formState: { errors },
       } = useForm()
   
-      const onSubmit = (data) => {
-       console.log(data);
+      const onSubmit =  (data) => {
+       
+    let id = Math.random('3')
      let info ={
-      name:data.name, description:data.description, level:data.level, checked: false
+     id,  name:data.name, description:data.description, level:data.level, checked: false
      }
        addTask(info)
       
+       toast.success('added')  
+       
+      reset()
       }
     
   
@@ -28,7 +34,7 @@ const Addtask = () => {
             <div >
   <div className="  hero-content min-h-screen  ">
    
-    <div className="card  w-full max-w-2xl shadow-2xl bg-base-100">
+    <div className="card  w-full max-w-2xl shadow-2xl bg-white">
       <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">
           <label className="label">
@@ -59,6 +65,7 @@ const Addtask = () => {
       </form>
     </div>
   </div>
+  <Toaster></Toaster>
 </div>
         </div>
     );

@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
+import toast, { ToastBar, Toaster } from 'react-hot-toast';
 export let ContextService=createContext();
 const ContextHome = ({ children }) => {
     let [task,setTask]= useState([])
@@ -22,11 +23,10 @@ const deletTask =(taskName)=>{
  updateLocalStorage(updatedTasks);
 
  }
-const updateLocalStorage = (tasks) => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-};
+
 const updateTask = (taskName,newdata) => {
-  const updatedTasks = task.map((tsk) => (tsk.name === taskName ? { ...tsk , ...newdata} : tsk));
+  console.log(newdata);
+  const updatedTasks = task.map((tsk) => (tsk.name === taskName ? { ...tsk, ...newdata} : tsk));
   setTask(updatedTasks) 
   updateLocalStorage(updatedTasks);
   };
@@ -45,7 +45,9 @@ const updateTask = (taskName,newdata) => {
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 
-
+  const updateLocalStorage = (tasks) => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  };
 let value= {
     addTask, task ,deletTask,updateTask,taskchecked
 }
