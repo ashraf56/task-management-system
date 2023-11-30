@@ -7,6 +7,11 @@
  - React js
  - Tailwind CSS
 
+![Project Logo](/public/projectimg1.png)
+
+
+
+
 ## Installation
 
 1. Clone the repository:
