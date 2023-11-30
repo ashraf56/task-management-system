@@ -1,11 +1,13 @@
-# Your Project Name
 
-Brief description of your project.
+
+# Your Project Name
 
 ## Prerequisites
 
-- Node.js
-- npm
+
+
+- [Node.js](https://nodejs.org/) (Vite requires Node.js 12.0 and above)
+- npm or yarn
 
 ## Installation
 
@@ -13,21 +15,23 @@ Brief description of your project.
 
    ```bash
    git clone https://github.com/ashraf56/task-management-system.git
+   ```
 
 2. Navigate to the project directory:
 
-
-   git clone https://github.com/ashraf56/task-management-system.git
+   ```bash
+   cd your-repo
+   ```
 
 3. Install dependencies using npm:
 
+   ```bash
+   npm install
+   ```
 
-   git clone https://github.com/ashraf56/task-management-system.git
+   Or using yarn:
 
+   ```bash
+   yarn
+   ```
 
-4. Usage: 
-
-
-   git clone https://github.com/ashraf56/task-management-system.git
-
-5. Open your browser and and see your Vite app.
