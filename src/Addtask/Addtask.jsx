@@ -16,9 +16,9 @@ const Addtask = () => {
   
       const onSubmit =  (data) => {
        
-    let id = Math.random('3')
+   
      let info ={
-     id,  name:data.name, description:data.description, level:data.level, checked: false
+     name:data.name, description:data.description, level:data.level, checked: false
      }
        addTask(info)
       

@@ -42,6 +42,7 @@ const Alltask = () => {
   };
     return (
         <div>
+          <h1 className='text-5xl font-bold uppercase text-center'>Task List</h1>
             
             <div className='grid grid-cols-1 gap-3 mx-auto px-14  items-center pt-14'>
                 {
@@ -49,7 +50,7 @@ const Alltask = () => {
                         <div  className={`alert ${t.checked ? 'checked line-through text-slate-400' : ''}`}>
                        <input type="checkbox"  className="checkbox"  checked={t.checked} onChange={()=> taskchecked(t.name)}/>
                       <div>
-                      <p >{t?.id}</p>
+                      
                       <p >{t?.name}</p>
                         <span className='tex-sm'><span className='font-bold text-sm'>Description:</span> {t?.description?.slice(0,6)}...</span>
                         <p className='text-xs'><span className='font-bold'>Priority</span> {t?.level}</p>
