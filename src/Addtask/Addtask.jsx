@@ -14,8 +14,10 @@ const Addtask = () => {
   
       const onSubmit = (data) => {
        console.log(data);
-     
-       addTask(data)
+     let info ={
+      name:data.name, description:data.description, level:data.level, checked: false
+     }
+       addTask(info)
       
       }
     
@@ -44,7 +46,8 @@ const Addtask = () => {
         <label className="label">
             <span className="label-text">Task Priority level</span>
           </label>
-        <select className="select select-bordered w-full max-w-full" {...register("level")}>
+        <select className="select select-bordered w-full max-w-full" {...register("level")} required>
+        <option value="">select the task</option>
         <option value="high">high</option>
         <option value="medium">medium</option>
         <option value="low">low</option>

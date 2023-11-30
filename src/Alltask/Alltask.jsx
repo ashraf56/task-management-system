@@ -6,8 +6,8 @@ import { useForm } from 'react-hook-form';
 const Alltask = () => {
 
    let {task,deletTask ,taskchecked,updateTask}= useContext(ContextService)
-   const [selectedTask, setSelectedTask] = useState(null);
-
+   const [selectedTask, setSelectedTask] = useState([]);
+console.log(selectedTask?.level);
    const {
     register,
     handleSubmit,
@@ -17,8 +17,11 @@ const Alltask = () => {
 
   const onSubmit = (data) => {
    console.log(data);
+   let updateinfo= {
+    name:data.name, description:data.description,level:data.newlevel
+   }
    if (selectedTask) {
-    updateTask(selectedTask.name, data); 
+    updateTask(selectedTask.name,updateinfo); 
     handleCloseModal();
   }
   
@@ -60,7 +63,7 @@ const Alltask = () => {
 
             </div>
             <dialog id="my_modal_1" className="modal">
-  <div className="modal-box">
+  <div className="modal-box ">
     <h3 className="font-bold text-lg">Hello!</h3>
     <p className="py-4">Press ESC key or click the button below to close</p>
     <div className="modal-action">
@@ -82,12 +85,15 @@ const Alltask = () => {
                  </div>
        <div className="form-control">
        <label className="label">
-           <span className="label-text">Task Priority level</span>
+           <span className="label-text">Task Priority lebel <span className='font-bold'> {selectedTask?.level}</span></span>
          </label>
-       <select className="select select-bordered w-full max-w-full" {...register("level")} 
-       defaultValue={selectedTask?.level}
+       <label className="label">
+           <span className="label-text">Update Task Priority lebel </span>
+         </label>
+       <select className="select select-bordered w-full max-w-full" {...register("newlevel")} 
+        required
        >
-        
+        <option value="">select the task</option>
        <option value="high">high</option>
        <option value="medium">medium</option>
        <option value="low">low</option>
