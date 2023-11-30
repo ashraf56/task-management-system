@@ -20,7 +20,7 @@ Brief description of your project.
 
 3. Install dependencies using npm:
 
-       ```bash
+  ```bash
              npm install
 
 
@@ -28,5 +28,5 @@ Brief description of your project.
 
       ```bash
              npm install
-             
+
 5. Open your browser and and see your Vite app.
