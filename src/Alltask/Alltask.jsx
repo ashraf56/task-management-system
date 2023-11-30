@@ -42,7 +42,7 @@ const Alltask = () => {
   };
     return (
         <div>
-          <h1 className='text-5xl font-bold uppercase text-center'>Task List</h1>
+          <h1 className='text-5xl font-bold uppercase py-5 text-center'>Task List</h1>
             
             <div className='grid grid-cols-1 gap-3 mx-auto px-14  items-center pt-14'>
                 {
