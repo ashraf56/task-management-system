@@ -9,8 +9,8 @@ import ContextHome from './context/Context'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ContextHome>
-<RouterProvider router={router} />
+      <RouterProvider router={router} />
     </ContextHome>
-    
+
   </React.StrictMode>,
 )
