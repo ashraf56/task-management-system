@@ -25,7 +25,7 @@ const ContextHome = ({ children }) => {
   }
 
   const updateTask = (taskName, newdata) => {
-    console.log(newdata);
+    
     const updatedTasks = task.map((tsk) => (tsk.name === taskName ? { ...tsk, ...newdata } : tsk));
     setTask(updatedTasks)
     updateLocalStorage(updatedTasks);
