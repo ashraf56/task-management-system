@@ -16,8 +16,11 @@ const Alltask = () => {
   };
   return (
     <div>
-      <h1 className='text-5xl font-bold uppercase py-5 text-center'>Task List</h1>
-      <div className='grid grid-cols-1 gap-3 mx-auto px-14  items-center pt-14'>
+      <div className='flex items-center justify-between mx-auto px-20'>
+        <h1 className='text-xl font-bold uppercase py-5 text-center text-sky-600'>Task List</h1>
+        <p className='text-4xl text-sky-600'>{task.length}</p>
+      </div>
+      {task.length === 0 ? <div className='text-center font-bold uppercase text-lg text-amber-900'>Add your task</div> : <div className='grid grid-cols-1 gap-3 mx-auto px-14  items-center pt-14'>
         {
           task.map(t => (
             <div className={`alert ${t.checked ? 'checked line-through text-slate-400' : ''}`}>
@@ -40,6 +43,8 @@ const Alltask = () => {
           ))
         }
       </div>
+
+      }
       {/* Modal for update the  task */}
       <TaskModal selectedTask={selectedTask}  ></TaskModal>
     </div>
